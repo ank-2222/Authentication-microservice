@@ -13,32 +13,37 @@ npm install
 
 ## Usage
 
-Hospital Signup
-
+#### Hospital Signup
+```bash
 POST /h/signup
+```
 Endpoint for hospital registration. Requires valid hospital registration fields.
 
-Hospital Login
-
+#### Hospital Login
+```bash 
 POST /h/login
+```
 Endpoint for hospital login. Requires valid login credentials.
 
-Patient Signup
-
+#### Patient Signup
+```bash
 POST /p/signup
+```
 Endpoint for patient registration. Requires valid patient registration fields.
 
-Patient Login
-
+#### Patient Login
+```bash
 POST /p/login
+```
 Endpoint for patient login. Requires valid login credentials.
 
-Check User Authentication Status
-
+#### Check User Authentication Status
+```bash
 GET /isLoggedIn
+```
 Endpoint to check the authentication status of the user. Requires a valid authentication token.
 
-Controllers and Middlewares
+## Controllers and Middlewares
 The API uses the following controllers and middlewares:
 
 - signupHospital: Handles hospital authentication logic.
