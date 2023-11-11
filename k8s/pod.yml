@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: login-app-pod
+spec:
+  selector:
+    matchLabels:
+      app: login-app-pod
+  template:
+    metadata:
+      labels:
+        app: login-app-pod
+  containers:
+  - name: login-app-pod
+    image: ankit2222/rescueradarauth:v1.2
+    ports:
+    - containerPort: 8000
+

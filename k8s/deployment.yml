@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-deployment
+  labels:
+    app: login-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: login-app
+  template:
+    metadata:
+      labels:
+        app: login-app
+    spec:
+      containers:
+      - name: login-app
+        image: ankit2222/rescueradarauth:v1.2
+        ports:
+        - containerPort: 8000
+        env:
+          - name: JWT_SECRET
+            value: "cat-human-mat-mouse-dog-elephant-phone-id"
+          - name: JWT_EXPIRES_IN
+            value: "90"
+          - name: JWT_COOKIE_EXPIRES_IN
+            value: "90"
+          - name: PORT
+            value: "8000"
+        resources:
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+          requests:
+            cpu: "0.5"
+            memory: "256Mi"
