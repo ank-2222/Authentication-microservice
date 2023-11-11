@@ -1,0 +1,44 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: rescueradar
+
+  app:
+    image: ankit2222/rescueradarauth:v1.2
+    container_name: rescueradarauth
+    restart: on-failure
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000" 
+    environment:
+      JWT_SECRET: cat-human-mat-mouse-dog-elephant-phone-id
+      JWT_EXPIRES_IN: 90
+      JWT_COOKIE_EXPIRES_IN: 90
+      PORT: 8000
+
+  # app2:
+  #   image: ankit2222/rescueradarauth2:v1
+  #   container_name: rescueradarauth2
+  #   restart: on-failure
+  #   depends_on:
+  #     - postgres
+  #   ports:
+  #     - "5000:5000" 
+  #   environment:
+  #     JWT_SECRET: cat-human-mat-mouse-dog-elephant-phone-id
+  #     JWT_EXPIRES_IN: 90
+  #     JWT_COOKIE_EXPIRES_IN: 90
+  #     PORT: 5000
+
+
+networks:
+  default:
+    driver: bridge
