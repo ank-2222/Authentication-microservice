@@ -19,15 +19,10 @@ spec:
         image: ankit2222/rescueradarauth:v1.2
         ports:
         - containerPort: 8000
-        env:
-          - name: JWT_SECRET
-            value: "cat-human-mat-mouse-dog-elephant-phone-id"
-          - name: JWT_EXPIRES_IN
-            value: "90"
-          - name: JWT_COOKIE_EXPIRES_IN
-            value: "90"
-          - name: PORT
-            value: "8000"
+        # env:
+          # - name: 
+            # value: 
+       
         resources:
           limits:
             cpu: "1"
